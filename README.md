@@ -7,7 +7,7 @@ Convert select boxes into Bootstrap button group toggles
 
 ## Usage
 
-Create a '<select>' element:
+Create a select element:
 
 ```html
 <select class="select-toggleizer">
