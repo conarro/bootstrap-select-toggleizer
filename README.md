@@ -11,9 +11,9 @@ Create a select element:
 
 ```html
 <select class="select-toggleizer">
-  <option>A</option>
-  <option>B</option>
-  <option>C</option>
+  <option>Setting A</option>
+  <option>Setting B</option>
+  <option>Setting C</option>
 </select>
 ```
 
@@ -45,9 +45,9 @@ $('.select-toggleizer').toggleize({
 Options can be set in the initialization object (as above), or data-attributes can be used:
 ```html
 <select class="select-toggleizer" data-button-class='myCustomClass' data-show-tooltip='true'>
-  <option data-title='some tooltip text'>A</option>
-  <option>B</option>
-  <option>C</option>
+  <option data-title='some tooltip text'>Setting A</option>
+  <option>Setting B</option>
+  <option>Setting C</option>
 </select>
 ```
 
