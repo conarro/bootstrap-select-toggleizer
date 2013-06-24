@@ -23,7 +23,7 @@ And toggleize it:
 $('.select-toggleizer').toggleize();
 ```
 
-Additional options:
+## Options
 
 ```javascript
 $('.select-toggleizer').toggleize({
