@@ -1,0 +1,25 @@
+{
+  "name": "select-toggleizer",
+  "title": "jQuery Bootstrap Select Toggleizer",
+  "description": "Convert select boxes to button group toggles",
+  "version": "0.1.0",
+  "homepage": "https://github.com/kconarro14/bootstrap-select-toggleizer",
+  "author": {
+    "name": "Kyle Conarro",
+    "url": "https://github.com/kconarro14"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/kconarro14/bootstrap-select-toggleizer.git"
+  },
+  "licenses": [
+    {
+      "type": "Custom",
+      "url": "https://github.com/kconarro14/bootstrap-select-toggleizer/blob/master/README.md#copyright-and-license"
+    }
+  ],
+  "dependencies": {
+    "jquery": "1.8"
+  },
+  "keywords": ["bootstrap", "toggle", "select"]
+}
