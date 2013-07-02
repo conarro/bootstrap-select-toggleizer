@@ -1,10 +1,7 @@
 /**
-* @version: 0.1
 * @author: Kyle Conarro
-* @date: 05-20-2013
 * @copyright: Copyright (c) 2013 Kyle Conarro. All rights reserved.
-* @license: Licensed under Apache License v2.0. See http://www.apache.org/licenses/LICENSE-2.0
-* @website: http://rigor.com
+* @website: https://github.com/kconarro14
 */
 
 // utility
