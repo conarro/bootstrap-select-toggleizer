@@ -5,9 +5,10 @@
   <meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
   <!--[if lt IE 9]><script type='text/javascript' src='assets/javascript/html5.js'></script><![endif]-->
   <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
-  
-  <script type='text/javascript' src='src/custom-select-combo.js'></script>
+  <script src="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.js"></script>
   <script type='text/javascript' src='assets/javascript/prettify.js'></script>
+  <script type='text/javascript' src='src/select-toggleizer.js'></script>
+  <script type='text/javascript' src='src/custom-select-combo.js'></script>
   <link rel='stylesheet' type='text/css' href='assets/css/bootstrap.min.css' />
   <link rel='stylesheet' type='text/css' href='assets/css/bootstrap-responsive.min.css' />
   <link rel='stylesheet' type='text/css' href='assets/css/prettify.css' />
@@ -16,24 +17,25 @@
   <script type="text/javascript">
     $(document).ready(function() {
       $('.custom-select-combo').customSelectCombo();
+      $('.select-toggleizer').toggleize();
     })
   </script>
 </head>
 
 <body>
   <div class="navbar navbar-fixed-top navbar-inverse">
-      <div class="navbar-inner">
-        <div class="container">
-          <a class="brand" href="#">Bootstrap Plugins</a>
-          <div class="nav-collapse">
-            <ul class="nav">
-              <li class="active"><a href="#">Home</a></li>
-              <li><a href="#select-toggleizer">Select Toggleizer</a></li>
-              <li><a href="#custom-select-combo">Custom Select Combo</a></li>
-            </ul>
-          </div><!-- /.nav-collapse -->
-        </div>
-      </div><!-- /navbar-inner -->
+    <div class="navbar-inner">
+      <div class="container">
+        <a class="brand" href="#">Bootstrap Plugins</a>
+        <div class="nav-collapse">
+          <ul class="nav">
+            <li class="active"><a href="#">Home</a></li>
+            <li><a href="#select-toggleizer">Select Toggleizer</a></li>
+            <li><a href="#custom-select-combo">Custom Select Combo</a></li>
+          </ul>
+        </div><!-- /.nav-collapse -->
+      </div>
+    </div><!-- /navbar-inner -->
   </div>
   
   <div class="container" style='margin-top:70px;'>
@@ -62,19 +64,19 @@
       <div class="row-fluid">
         <div class="span12 well">
           <div class="span6">
-            <label for="before">Before</label>
-            <select id="before">
-              <option value='dog'>Dog</option>
-              <option value='cat'>Cat</option>
-              <option value='custom'>Custom</option>
+            <label>Before</label>
+            <select>
+              <option>Setting A</option>
+              <option>Setting B</option>
+              <option>Setting C</option>
             </select>
           </div>
           <div class="span6">
-            <label for="example">After</label>
-            <select id="example" data-verbose='true' class="custom-select-combo">
-              <option value='dog'>Dog</option>
-              <option value='cat'>Cat</option>
-              <option value='custom'>Custom</option>
+            <label>After</label>
+            <select data-verbose="true" class="select-toggleizer">
+              <option>Setting A</option>
+              <option>Setting B</option>
+              <option>Setting C</option>
             </select>
           </div>
         </div>
@@ -113,16 +115,16 @@
       <div class="row-fluid">
         <div class="span12 well">
           <div class="span6">
-            <label for="before">Before</label>
-            <select id="before">
+            <label>Before</label>
+            <select>
               <option value='dog'>Dog</option>
               <option value='cat'>Cat</option>
               <option value='custom'>Custom</option>
             </select>
           </div>
           <div class="span6">
-            <label for="example">After</label>
-            <select id="example" data-verbose='true' class="custom-select-combo">
+            <label>After</label>
+            <select data-verbose='true' class="custom-select-combo">
               <option value='dog'>Dog</option>
               <option value='cat'>Cat</option>
               <option value='custom'>Custom</option>
