@@ -1,66 +1,166 @@
 <!DOCTYPE html>
 <html lang='en'>
-	<head>
-		<title>My GitHub project</title>
-		<meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
-		<!--[if lt IE 9]><script type='text/javascript' src='assets/javascript/html5.js'></script><![endif]-->
-		<script type='text/javascript' src='assets/javascript/prettify.js'></script>
+<head>
+  <title>Bootstrap Plugins</title>
+  <meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
+  <!--[if lt IE 9]><script type='text/javascript' src='assets/javascript/html5.js'></script><![endif]-->
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+  
+  <script type='text/javascript' src='src/custom-select-combo.js'></script>
+  <script type='text/javascript' src='assets/javascript/prettify.js'></script>
+  <link rel='stylesheet' type='text/css' href='assets/css/bootstrap.min.css' />
+  <link rel='stylesheet' type='text/css' href='assets/css/bootstrap-responsive.min.css' />
+  <link rel='stylesheet' type='text/css' href='assets/css/prettify.css' />
+  <link rel='stylesheet' type='text/css' href='assets/css/style.css' />
 
-		<link rel='stylesheet' type='text/css' href='assets/css/style.css' />
-		<link rel='stylesheet' type='text/css' href='assets/css/bootstrap.css' />
-		<link rel='stylesheet' type='text/css' href='assets/css/prettify.css' />
-	</head>
-	<body onload='prettyPrint()'>
-<div class="navbar navbar-fixed-top">
-    <div class="navbar-inner">
-      <div class="container">
-        <a class="brand" href="#">Your Project!</a>
-        <div class="nav-collapse">
-          <ul class="nav">
-            <li class="active"><a href="#">Home</a></li>
-            
-          </ul>
-        </div><!-- /.nav-collapse -->
+  <script type="text/javascript">
+    $(document).ready(function() {
+      $('.custom-select-combo').customSelectCombo();
+    })
+  </script>
+</head>
+
+<body>
+  <div class="navbar navbar-fixed-top navbar-inverse">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="brand" href="#">Bootstrap Plugins</a>
+          <div class="nav-collapse">
+            <ul class="nav">
+              <li class="active"><a href="#">Home</a></li>
+              <li><a href="#select-toggleizer">Select Toggleizer</a></li>
+              <li><a href="#custom-select-combo">Custom Select Combo</a></li>
+            </ul>
+          </div><!-- /.nav-collapse -->
+        </div>
+      </div><!-- /navbar-inner -->
+  </div>
+  
+  <div class="container" style='margin-top:70px;'>
+    <div class="hero-unit">
+      <h1>Bootstrap Plugins</h1>
+      <br/>
+      <p>A collection of plugins built at <a href='http://rigor.com' target='_blank'>Rigor Web Performance</a> for use with Twitter Bootstrap</p>
+      <p>
+        <a class="btn btn-large" href='http://github.com/kconarro14/'>
+          View on GitHub &raquo;
+        </a>
+      </p>
+    </div>
+    
+    <div class="row-fluid">
+      <div class="page-header">
+        <h1>
+          <a id="select-toggleizer">Select Toggleizer</a>
+          <small>
+            Convert select boxes into button group toggles
+            <a class="btn pull-right" style="margin-top:10px;" href="http://github.com/kconarro14/bootstrap-select-toggleizer">View on GitHub &raquo;</a>
+          </small>
+        </h1>
       </div>
-    </div><!-- /navbar-inner -->
-</div>
-		
-  <div class='row-fluid'>
-  		<div class='hero-unit'>
-			<header>
-				<h1 class=''>Your Project Title</h1>
-			</header>
-			<p>This is a Hero unit with a button!
-          <a href='https://github.com/USER/REPOSITORY/zipball/master' class='btn btn-large'>
-            Download
-            <span>Latest version from GitHub</span>
-          </a>			</p>
-			<h2>Explaination:</h2>
-			<p>Here's some room to explain your awesome project!</p>
-        <hr class="soften">
-			
-      <span class="label label-important">How about a code example:</span>
-      <pre class='prettyprint'>
-        &lt;script&gt;
-        function display_awesomeness();
-        {
-          alert("Awesomeness!");
-        }
-        &lt;/script&gt;
-      &lt;form&gt;
-        &lt;input type="button" value="Click me!" onclick="display_awesomeness()" /&gt;
-      &lt;/form&gt;
-			</pre>
-		</div>	
-<footer class="span12">
-<div class="alert">
-  Made by You!
-</div>
-</footer>
-			</div>
+      <h3>Example</h3>
+      <div class="row-fluid">
+        <div class="span12 well">
+          <div class="span6">
+            <label for="before">Before</label>
+            <select id="before">
+              <option value='dog'>Dog</option>
+              <option value='cat'>Cat</option>
+              <option value='custom'>Custom</option>
+            </select>
+          </div>
+          <div class="span6">
+            <label for="example">After</label>
+            <select id="example" data-verbose='true' class="custom-select-combo">
+              <option value='dog'>Dog</option>
+              <option value='cat'>Cat</option>
+              <option value='custom'>Custom</option>
+            </select>
+          </div>
+        </div>
+        <h3>Usage</h3>
+        <div class="row-fluid">
+          <h4>Create a select element:</h4>
+          <pre class="prettyprint linenums lang-html">        
+  &lt;select class=&quot;select-toggleizer&quot;&gt;
+    &lt;option&gt;Setting A&lt;/option&gt;
+    &lt;option&gt;Setting B&lt;/option&gt;
+    &lt;option&gt;Setting C&lt;/option&gt;
+  &lt;/select&gt;
+          </pre>
+        </div>
+        <div class="row-fluid">
+          <h4>And toggleize it:</h4>
+          <pre class="prettyprint linenums lang-js">
 
-		
-		<a href='https://github.com/USER/REPOSITORY' class='github-ribbon'><img src='assets/images/github-ribbons/red.png' /></a>
-	</div>	
-	</body>
+  $('.select-toggleizer').toggleize();
+          </pre>
+        </div>
+      </div>
+    </div>
+
+    <div class="row-fluid" style="margin-top:40px;">
+      <div class="page-header">
+        <h1>
+          <a id="custom-select-combo">Custom Select Combo</a>
+          <small>
+            Allow custom input with select boxes
+            <a class="btn pull-right" style="margin-top:10px;" href="http://github.com/kconarro14/custom-select-combo">View on GitHub &raquo;</a>
+          </small>
+        </h1>
+      </div>
+      <h3>Example</h3>
+      <div class="row-fluid">
+        <div class="span12 well">
+          <div class="span6">
+            <label for="before">Before</label>
+            <select id="before">
+              <option value='dog'>Dog</option>
+              <option value='cat'>Cat</option>
+              <option value='custom'>Custom</option>
+            </select>
+          </div>
+          <div class="span6">
+            <label for="example">After</label>
+            <select id="example" data-verbose='true' class="custom-select-combo">
+              <option value='dog'>Dog</option>
+              <option value='cat'>Cat</option>
+              <option value='custom'>Custom</option>
+            </select>
+          </div>
+        </div>
+        <h3>Usage</h3>
+        <div class="row-fluid">
+          <h4>Create a select element:</h4>
+          <pre class="prettyprint linenums lang-html">        
+  &lt;select class=&quot;custom-select-combo&quot;&gt;
+    &lt;option value=&#39;dog&#39;&gt;Dog&lt;/option&gt;
+    &lt;option value=&#39;cat&#39;&gt;Cat&lt;/option&gt;
+    &lt;option value=&#39;custom&#39;&gt;Custom&lt;/option&gt;
+  &lt;/select&gt;
+          </pre>
+        </div>
+        <div class="row-fluid">
+          <h4>And customize it:</h4>
+          <pre class="prettyprint linenums lang-js">
+
+  $('.custom-select-combo').customSelectCombo();
+          </pre>
+        </div>
+      </div>
+    </div>
+
+
+    <div class='row-fluid'>
+      <footer class="span12">
+        
+      </footer>
+    </div>
+
+  </div> <!-- //container -->
+
+    
+  <a href='https://github.com/kconarro14' class='github-ribbon'><img src='assets/images/github-ribbons/red.png' /></a>
+
+  </body>
 </html>

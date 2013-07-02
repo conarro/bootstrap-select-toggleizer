@@ -7,7 +7,7 @@
 
 /* Page */
 body {
-	background: #333333 url('../images/page-background.png') repeat top left;
+	/*background: #333333 url('../images/page-background.png') repeat top left;*/
 	font-family: arial,sans-serif;
 	padding:1%;
 	margin:1%;
@@ -36,15 +36,15 @@ div.repo-author {
 }
 
 /* Text */
-p, strong, li {
+/*p, strong, li {
     color: #CCCCCC;
     font-size: 14px;
-}
+}*/
 
-strong {
+/*strong {
     font-weight: bold;
     color: #EEEEEE;
-}
+}*/
 
 a {
 	color: #0075B6;
@@ -60,14 +60,18 @@ a:hover {
 }
 
 h1, h2 {
-	font-family: georgia,serif;
+	/*font-family: georgia,serif;*/
 }
 
 h1 {
-	font-style: italic;
-	color: #eee;
-	font-size: 50px;
-	margin: 0;
+	/*font-style: italic;*/
+	/*color: #eee;*/
+	font-size: 40px;
+	/*margin: 0;*/
+}
+
+h1 small {
+	font-size:24px;
 }
 
 h2 {
@@ -77,11 +81,11 @@ h2 {
 	padding-top: 15px;
 }
 
-h3, h4 {
+/*h3, h4 {
 	color: #FFFFFF;
 	font-weight: bold;
 	font-family: inherit;
-}
+}*/
 
 h3 {
 	font-size: 28px;
