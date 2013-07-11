@@ -1,6 +1,7 @@
-[![Stories in Ready](http://badge.waffle.io/kconarro14/bootstrap-select-toggleizer.png)](http://waffle.io/kconarro14/bootstrap-select-toggleizer)  
-bootstrap-select-toggleizer
+
+bootstrap-select-toggleizer  [![Stories in Ready](http://badge.waffle.io/kconarro14/bootstrap-select-toggleizer.png)](http://waffle.io/kconarro14/bootstrap-select-toggleizer)  
 ===========================
+
 
 ![Toggleizer Example](https://www.evernote.com/shard/s39/sh/3e451347-593a-4b38-bcb5-716544b65505/2c5b26afe2bf2b9d1e791f6963b38a2f/deep/0/Screenshot%206/24/13%2012:54%20AM.jpg)
 
