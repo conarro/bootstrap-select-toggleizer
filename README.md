@@ -1,3 +1,4 @@
+[![Stories in Ready](http://badge.waffle.io/kconarro14/bootstrap-select-toggleizer.png)](http://waffle.io/kconarro14/bootstrap-select-toggleizer)  
 bootstrap-select-toggleizer
 ===========================
 
