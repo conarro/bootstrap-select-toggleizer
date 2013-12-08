@@ -167,8 +167,9 @@ if ( typeof Object.create !== 'function' ) {
       self.$elem.change(function() {
         var $buttons = self.buttonGroup.children();
         $buttons.removeClass("active");
-        for (var i=0; i < [].concat($(this).val()).length; i++) {
-          $buttons.filter("[data-value='" + i + "']").addClass("active");
+        var vals = [].concat($(this).val());
+        for (var i=0; i < vals.length; i++) {
+          $buttons.filter("[data-value='" + vals[i] + "']").addClass("active");
         }
       });
     },
