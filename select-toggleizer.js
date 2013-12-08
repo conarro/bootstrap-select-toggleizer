@@ -7,36 +7,36 @@
 // utility
 if ( typeof Object.create !== 'function' ) {
   Object.create = function(obj) {
-    function F() {};
+    function F() {
+    }
     F.prototype = obj;
     return new F();
   };
 }
 
-(function( $, window, document, undefined ) {
-  var Toggleize = {
+(function ($) {
+    var Toggleize = {
     init: function( options, elem ) {
       var self = this;
       self.elem = elem;
       self.$elem = $(elem);
-      
+
       self.$selectOptions = self.$elem.find('option');
-      
+
       self.options = $.extend({}, $.fn.toggleize.options, self.$elem.data(), typeof options == 'object' && options);
-      
+
       self.options.toggleStyle = self.$elem.prop('multiple') ? 'checkbox' : 'radio';
       self.verbose = self.options.verbose;
-      
+
       if (self.verbose) {
         console.log('verbose', self.verbose);
         console.log('options', self.options);
-      } 
+      }
 
       if (this.$elem.siblings('.' + this.options.toggleClass).length == 0) {
         self.createToggles();
       } else {
         if (self.verbose) console.log('element already toggleized!', this.elem);
-        return;
       }
 
     },
@@ -56,21 +56,22 @@ if ( typeof Object.create !== 'function' ) {
 
     createButtons: function() {
       var self = this;
-      var selectOptions = self.options.includeEmptyValues == true ? this.$selectOptions : self.removeEmptyOptions(this.$elem)
+      var selectOptions = self.options.includeEmptyValues == true ? this.$selectOptions : self.removeEmptyOptions(this.$elem);
 
       // create buttons from select options
       var buttons = $.map(selectOptions, function(option) {
-        var btn = $("<button type='button' class='btn select-button-toggle'></button>").attr('data-value', option.value);
+        var btn = $("<" + self.options.buttonElement + " type='button' class='btn select-button-toggle'></" +
+            self.options.buttonElement + ">").attr('data-value', option.value);
         if ($(option).data('icon')) {
           btn.append('<i class="' + $(option).data('icon') + '" </i> ');
           if ($(option).data('label')) btn.append($(option).data('label'));
         } else {
           $(option).data('label') ? btn.append($(option).data('label')) : btn.append(option.text);
         }
-        
-        if (option.value == '') $(option).addClass('.disabled')
 
-        $(option).data('title') ? btn.attr('data-title', $(option).data('title')) : btn.attr('data-title', option.text) // set tooltip title
+        if (option.value == '') $(option).addClass('.disabled');
+
+        $(option).data('title') ? btn.attr('data-title', $(option).data('title')) : btn.attr('data-title', option.text); // set tooltip title
 
         if ($(option).prop('selected')) btn.addClass('active'); // set active button
 
@@ -81,8 +82,9 @@ if ( typeof Object.create !== 'function' ) {
       self.attachButtonEvents($buttons);
       self.attachButtonAttributes($buttons);
       self.setButtonWidths($buttons);
+      self.attachSelectionChangeEvent();
 
-      var rawButtons = $buttons.map(function() { return this[0]; })
+      var rawButtons = $buttons.map(function() { return this[0]; });
       if (self.verbose) console.log('created buttons', $buttons, rawButtons);
       return rawButtons;
     },
@@ -99,8 +101,8 @@ if ( typeof Object.create !== 'function' ) {
 
     smartButtonWidth: function($buttons) {
       var maxWidth = 0;
-      $buttons.each(function(index) {
-        var drawnButton = $(this).clone().appendTo('body');
+        $buttons.each(function () {
+            var drawnButton = $(this).clone().appendTo('body');
         if (drawnButton.width() > maxWidth) {
           maxWidth = drawnButton.width();
           if ($(this).find('i') != null) maxWidth += 30; // add width if icon in label
@@ -121,7 +123,6 @@ if ( typeof Object.create !== 'function' ) {
             container: 'body' // to fix bootstrap bug for tooltips on buttons
           })
         }
-        button = $button[0];
       });
     },
 
@@ -141,11 +142,11 @@ if ( typeof Object.create !== 'function' ) {
         if (!$button.hasClass('active')) {
           activeButtons.push($button);
         }
-        
+
         // get active button values
         var values = $.map(activeButtons, function(obj) {
           return $(obj).data('value');
-        })
+        });
 
         self.setSelectedOptions(values);
         self.triggerClickEvent(values);
@@ -158,6 +159,17 @@ if ( typeof Object.create !== 'function' ) {
         var value = $(this).data('value');
         self.setOption(value);
         self.triggerClickEvent(value);
+      });
+    },
+
+    attachSelectionChangeEvent: function() {
+      var self = this;
+      self.$elem.change(function() {
+        var $buttons = self.buttonGroup.children();
+        $buttons.removeClass("active");
+        for (var i=0; i < [].concat($(this).val()).length; i++) {
+          $buttons.filter("[data-value='" + i + "']").addClass("active");
+        }
       });
     },
 
@@ -178,8 +190,8 @@ if ( typeof Object.create !== 'function' ) {
     setSelectedOptions: function(values) {
       var self = this;
       self.$selectOptions.prop('selected', false);
-      for (i=0; i < values.length; i++) {
-        self.$selectOptions.filter('[value="' + values[i] + '"]').prop('selected', true);  
+      for (var i=0; i < values.length; i++) {
+        self.$selectOptions.filter('[value="' + values[i] + '"]').prop('selected', true);
       }
     },
 
@@ -219,6 +231,7 @@ if ( typeof Object.create !== 'function' ) {
   };
 
   $.fn.toggleize.options = {
+    buttonElement: 'button', // or 'a'
     buttonClass: '', // additional classes for buttons
     buttonWidth: 'auto', // 'auto', someNumber(px or %)
     hideSelect: true, // hide original <select> element
@@ -233,4 +246,4 @@ if ( typeof Object.create !== 'function' ) {
     vertical: false // vertical group
   };
 
-})( jQuery, window, document );
+})(jQuery);
