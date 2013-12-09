@@ -73,7 +73,7 @@ if ( typeof Object.create !== 'function' ) {
 
         $(option).data('title') ? btn.attr('data-title', $(option).data('title')) : btn.attr('data-title', option.text); // set tooltip title
 
-        if ($(option).prop('selected')) btn.addClass('active'); // set active button
+        if ($(option).prop('defaultSelected')) btn.addClass('active'); // set active button
 
         return btn;
       });
