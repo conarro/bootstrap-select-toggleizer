@@ -167,10 +167,9 @@ if ( typeof Object.create !== 'function' ) {
       self.$elem.change(function() {
         var $buttons = self.buttonGroup.children();
         $buttons.removeClass("active");
-        var vals = [].concat($(this).val());
-        for (var i=0; i < vals.length; i++) {
-          $buttons.filter("[data-value='" + vals[i] + "']").addClass("active");
-        }
+        $.each([].concat($(this).val()), function(i, val) {
+          $buttons.filter("[data-value='" + val + "']").addClass("active");
+        });
       });
     },
 
@@ -191,8 +190,8 @@ if ( typeof Object.create !== 'function' ) {
     setSelectedOptions: function(values) {
       var self = this;
       self.$selectOptions.prop('selected', false);
-      for (var i=0; i < values.length; i++) {
-        self.$selectOptions.filter('[value="' + values[i] + '"]').prop('selected', true);
+      $.each(values), function(i, val) {
+        self.$selectOptions.filter('[value="' + val + '"]').prop('selected', true);
       }
     },
 
