@@ -47,16 +47,15 @@ if ( typeof Object.create !== 'function' ) {
       self.render();
     },
 
-    removeEmptyOptions: function(selectEl) {
-      selectEl.find('option').filter(function() {
-        return !this.value || $.trim(this.value).length == 0;
-      }).remove();
-      return selectEl.find('option');
+    excludeEmptyOptions: function(selectEl) {
+      return selectEl.find('option').filter(function() {
+        return this.value && $.trim(this.value).length;
+      })
     },
 
     createButtons: function() {
       var self = this;
-      var selectOptions = self.options.includeEmptyValues == true ? this.$selectOptions : self.removeEmptyOptions(this.$elem);
+      var selectOptions = self.options.includeEmptyValues == true ? this.$selectOptions : self.excludeEmptyOptions(this.$elem);
 
       // create buttons from select options
       var buttons = $.map(selectOptions, function(option) {
