@@ -19,18 +19,18 @@ if ( typeof Object.create !== 'function' ) {
       var self = this;
       self.elem = elem;
       self.$elem = $(elem);
-      
+
       self.$selectOptions = self.$elem.find('option');
-      
+
       self.options = $.extend({}, $.fn.toggleize.options, self.$elem.data(), typeof options == 'object' && options);
-      
+
       self.options.toggleStyle = self.$elem.prop('multiple') ? 'checkbox' : 'radio';
       self.verbose = self.options.verbose;
-      
+
       if (self.verbose) {
         console.log('verbose', self.verbose);
         console.log('options', self.options);
-      } 
+      }
 
       if (this.$elem.siblings('.' + this.options.toggleClass).length == 0) {
         self.createToggles();
@@ -67,7 +67,7 @@ if ( typeof Object.create !== 'function' ) {
         } else {
           $(option).data('label') ? btn.append($(option).data('label')) : btn.append(option.text);
         }
-        
+
         if (option.value == '') $(option).addClass('.disabled')
 
         $(option).data('title') ? btn.attr('data-title', $(option).data('title')) : btn.attr('data-title', option.text) // set tooltip title
@@ -141,7 +141,7 @@ if ( typeof Object.create !== 'function' ) {
         if (!$button.hasClass('active')) {
           activeButtons.push($button);
         }
-        
+
         // get active button values
         var values = $.map(activeButtons, function(obj) {
           return $(obj).data('value');
@@ -158,6 +158,8 @@ if ( typeof Object.create !== 'function' ) {
         var value = $(this).data('value');
         self.setOption(value);
         self.triggerClickEvent(value);
+        // remove existing active class from other button
+        if (!$(this).hasClass('active')) $(this).siblings().removeClass('active');
       });
     },
 
@@ -179,7 +181,7 @@ if ( typeof Object.create !== 'function' ) {
       var self = this;
       self.$selectOptions.prop('selected', false);
       for (i=0; i < values.length; i++) {
-        self.$selectOptions.filter('[value="' + values[i] + '"]').prop('selected', true);  
+        self.$selectOptions.filter('[value="' + values[i] + '"]').prop('selected', true);
       }
     },
 
